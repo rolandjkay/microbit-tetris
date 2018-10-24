@@ -1,0 +1,18 @@
+{
+  "name": "microbit-tetris",
+  "version": "0.0.0",
+  "bin": "./source",
+  "private": true,
+  "description": "micro:bit Tetris with external display",
+  "author": "Dr Roland Kay",
+  "license": "Apache-2.0",
+  "dependencies": {
+
+  },
+  "targetDependencies": {
+    "microbit": {
+      "microbit": "lancaster-university/microbit#v2.1.0",
+      "microbit-max7219-display-driver": "rolandjkay/microbit-max7219-display-driver"
+    }
+  }
+}

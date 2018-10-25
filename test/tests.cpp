@@ -13,8 +13,10 @@
  * Check that a 'tee' shape sitting above the gap in the last line is not
  * considered to have collided with anything.
  */
-static void test_block_collision_detection()
+static bool test_block_collision_detection()
 {
+  bool ok = true;
+
   uint8_t screen_buffer[] = {
     0b00000000,
     0b00000000,
@@ -38,6 +40,7 @@ static void test_block_collision_detection()
 
     0b11111111
   };
+
   Shape shape;
 
   shape.x = 5;
@@ -45,13 +48,19 @@ static void test_block_collision_detection()
   shape.type = 5;
 
   shape.draw(screen_buffer);
-  assert(screen_buffer[14] == 0b11100000);
+  ok &= screen_buffer[14] == 0b11100000;
   shape.draw(screen_buffer, /*erase = */ true);
-  assert(screen_buffer[14] == 0b00000000);
-  assert(!shape.is_resting_on_block(screen_buffer));
+  ok &= screen_buffer[14] == 0b00000000;
+  ok &= !shape.is_resting_on_block(screen_buffer);
+
+  return ok;
 }
 
 int main()
 {
-  test_block_collision_detection();
+  bool ok = true;
+
+  ok &= test_block_collision_detection();
+
+  return ok ? 0 : 255;
 }

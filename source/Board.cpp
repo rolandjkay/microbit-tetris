@@ -6,7 +6,6 @@
 #ifdef TARGET_LIKE_ARM
 #  include "MicroBit.h"
 #else
-#  include <stubs.h>
 #  include "microbit-max7219-display-driver/microbit-dal-osx.h"
 #endif
 
@@ -33,7 +32,7 @@ void Board::write_to_display(Max7219Display& display)
       display_image[dst_row] |= (board_data[src_row] & (1<<dst_row) ? 1 : 0) << src_row;
     }
   }
-  display.set_display(display_image,1, 1);
+  display.set_display(display_image,1, 0);
 
   memset(display_image, 0, 8);
 
@@ -42,7 +41,7 @@ void Board::write_to_display(Max7219Display& display)
       display_image[dst_row] |= (board_data[src_row+8] & (1<<dst_row) ? 1 : 0) << src_row;
     }
   }
-  display.set_display(display_image,1, 0);
+  display.set_display(display_image,1, 1);
 
   display.show();
 }

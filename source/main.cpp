@@ -11,7 +11,6 @@
 #else
 #  include <stdio.h>
 #  include "microbit-max7219-display-driver/microbit-dal-osx.h"
-#  include <stubs.h>
 #endif
 
 #define BOARD_WIDTH 8

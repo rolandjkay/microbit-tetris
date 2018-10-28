@@ -7,12 +7,13 @@
   "author": "Dr Roland Kay",
   "license": "Apache-2.0",
   "dependencies": {
-
+    "microbit-max7219-display-driver": "rolandjkay/microbit-max7219-display-driver"
   },
   "targetDependencies": {
     "microbit": {
-      "microbit": "lancaster-university/microbit#v2.1.0",
-      "microbit-max7219-display-driver": "rolandjkay/microbit-max7219-display-driver"
+      "microbit": "lancaster-university/microbit#v2.1.0"
+    },
+    "osx": {
     }
   }
 }

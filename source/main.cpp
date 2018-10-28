@@ -4,11 +4,13 @@
 #include "Shape.h"
 #include "Board.h"
 
+#include "microbit-max7219-display-driver/Max7219Display.h"
+
 #ifdef TARGET_LIKE_ARM
 #  include "MicroBit.h"
-#  include "microbit-max7219-display-driver/Max7219Display.h"
 #else
 #  include <stdio.h>
+#  include "microbit-max7219-display-driver/microbit-dal-osx.h"
 #  include <stubs.h>
 #endif
 
@@ -224,7 +226,7 @@ int main()
     board.write_to_display(display);
 
     // Wait 0.1 s
-    wait_us(100000);
+    wait(0.1);
   }
 
   // If main exits, there may still be other fibers running or registered event handlers etc.

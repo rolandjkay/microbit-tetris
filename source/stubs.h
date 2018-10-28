@@ -40,7 +40,7 @@ struct MicroBit
   MicroBitButton buttonAB;
 };
 
-struct Max7219Display
+/*struct Max7219Display
 {
   Max7219Display(const size_t* display_indices,
                  size_t display_width,
@@ -67,6 +67,8 @@ struct Max7219Display
 
 // Stub platform functions
 static inline void wait_us(size_t time) {}
+
+*/
 static inline void release_fiber() {}
 
 #endif

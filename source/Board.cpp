@@ -5,11 +5,12 @@
 
 #ifdef TARGET_LIKE_ARM
 #  include "MicroBit.h"
-#  include "microbit-max7219-display-driver/Max7219Display.h"
 #else
 #  include <stubs.h>
+#  include "microbit-max7219-display-driver/microbit-dal-osx.h"
 #endif
 
+#include "microbit-max7219-display-driver/Max7219Display.h"
 
 Board::Board()
 {
@@ -54,7 +55,7 @@ void Board::_clear_row(int row_index, Max7219Display& display)
   while (board_data[row_index] >>= 1)
   {
     this->write_to_display(display);
-    wait_us(100000);
+    wait(0.1);
   }
 }
 
